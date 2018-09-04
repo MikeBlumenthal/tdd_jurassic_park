@@ -2,11 +2,13 @@ const assert = require('assert');
 const Park = require('../models/park.js');
 const Dinosaur = require('../models/dinosaur.js');
 
+let dino1;
 let park1;
 
 describe('Park', function() {
 
   beforeEach(function () {
+    dino1 = new Dinosaur("T-Rex", "carnivore", 100);
     park1 = new Park("Jurassic World", 25);
   })
 
@@ -25,7 +27,12 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, []);
   });
 
-  it('should be able to add a dinosaur to its collection');
+  it('should be able to add a dinosaur to its collection', function(){
+    park1.addDinosaur(dino1);
+    const actual = park1.dinosaurCollection;
+    const expected = [dino1];
+    assert.deepStrictEqual(actual, expected);
+  });
 
   it('should be able to remove a dinosaur from its collection');
 
