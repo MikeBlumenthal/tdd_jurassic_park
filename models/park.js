@@ -9,8 +9,8 @@ Park.prototype.addDinosaur = function (dinosaur) {
 };
 
 Park.prototype.removeDinosaur = function (dinosaurToDelete) {
-  const newArray = this.dinosaurCollection.filter( dinosaur => dinosaur !== dinosaurToDelete );
-  this.dinosaurCollection = newArray;
+  const dinosaurArray = this.dinosaurCollection.filter( dinosaur => dinosaur !== dinosaurToDelete );
+  this.dinosaurCollection = dinosaurArray;
 };
 
 Park.prototype.mostPopularDinosaur = function () {
@@ -18,5 +18,10 @@ Park.prototype.mostPopularDinosaur = function () {
     return b.guestsAttractedPerDay - a.guestsAttractedPerDay;
   })
   return this.dinosaurCollection[0];
+};
+
+Park.prototype.findDinosaurs = function (species) {
+  const matchingDinosaurs = this.dinosaurCollection.filter( dinosaur => dinosaur.species === species );
+  return matchingDinosaurs;
 };
 module.exports = Park;
