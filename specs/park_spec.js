@@ -78,6 +78,13 @@ describe('Park', function() {
     park1.dinosaurCollection = [dino1, dino2, dino3];
     const actual = park1.ticketRevenuePerYear();
     assert.strictEqual(actual, 1551250);
-  })
+  });
+
+  it('should provide an object containing diet types with dinosaur counts for each', function(){
+    park1.dinosaurCollection = [dino1, dino2, dino3];
+    const actual = park1.feedingManifest();
+    const expected = { 'carnivore': 1, 'herbivore': 1, 'omnivore': 1 };
+    assert.deepStrictEqual(actual, expected)
+  });
 
 });

@@ -49,4 +49,17 @@ Park.prototype.ticketRevenuePerYear = function () {
   return (yearVisitors * this.ticketPrice);
 };
 
+Park.prototype.feedingManifest = function () {
+  let manifest = {};
+  for (let dinosaur of this.dinosaurCollection) {
+  if (Object.keys(manifest).includes(dinosaur.diet)) {
+    ++manifest[dinosaur.diet];
+  }
+  else {
+    manifest[dinosaur.diet] = 1;
+  }
+  }
+  return manifest;
+};
+
 module.exports = Park;
