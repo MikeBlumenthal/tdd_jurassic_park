@@ -20,8 +20,13 @@ Park.prototype.mostPopularDinosaur = function () {
   return this.dinosaurCollection[0];
 };
 
-Park.prototype.findDinosaurs = function (species) {
+Park.prototype.findDinosaursBySpecies = function (species) {
   const matchingDinosaurs = this.dinosaurCollection.filter( dinosaur => dinosaur.species === species );
   return matchingDinosaurs;
+};
+
+Park.prototype.removeDinosaursBySpecies = function (species) {
+  const savedDinosaurs = this.dinosaurCollection.filter( dinosaur => dinosaur.species !== species );
+  this.dinosaurCollection = savedDinosaurs;
 };
 module.exports = Park;
