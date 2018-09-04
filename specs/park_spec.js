@@ -72,6 +72,12 @@ describe('Park', function() {
     park1.dinosaurCollection = [dino1, dino2, dino3];
     const actual = park1.totalVisitorsPerYear();
     assert.strictEqual(actual, 62050);
+  });
+
+  it('should be able to calculate the projected revenue from ticket sales for one year', function(){
+    park1.dinosaurCollection = [dino1, dino2, dino3];
+    const actual = park1.ticketRevenuePerYear();
+    assert.strictEqual(actual, 1551250);
   })
 
 });
