@@ -29,4 +29,14 @@ Park.prototype.removeDinosaursBySpecies = function (species) {
   const savedDinosaurs = this.dinosaurCollection.filter( dinosaur => dinosaur.species !== species );
   this.dinosaurCollection = savedDinosaurs;
 };
+
+Park.prototype.totalVisitorsPerDay = function () {
+  let array = this.dinosaurCollection;
+  let count = 0;
+  for (let i = 0; i < array.length; i++) {
+    count = count + array[i].guestsAttractedPerDay;
+  }
+  return count;
+};
+
 module.exports = Park;
