@@ -13,4 +13,10 @@ Park.prototype.removeDinosaur = function (dinosaurToDelete) {
   this.dinosaurCollection = newArray;
 };
 
+Park.prototype.mostPopularDinosaur = function () {
+  this.dinosaurCollection.sort(function (a, b){
+    return b.guestsAttractedPerDay - a.guestsAttractedPerDay;
+  })
+  return this.dinosaurCollection[0];
+};
 module.exports = Park;

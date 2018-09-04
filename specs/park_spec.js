@@ -43,7 +43,11 @@ describe('Park', function() {
     assert.deepStrictEqual(actual, [dino1, dino3]);
   });
 
-  it('should be able to find the dinosaur that attracts the most visitors');
+  it('should be able to find the dinosaur that attracts the most visitors', function(){
+    park1.dinosaurCollection = [dino1, dino2, dino3];
+    const actual = park1.mostPopularDinosaur();
+    assert.strictEqual(actual, dino1);
+  });
 
   it('should be able to find all dinosaurs of a particular species');
 
